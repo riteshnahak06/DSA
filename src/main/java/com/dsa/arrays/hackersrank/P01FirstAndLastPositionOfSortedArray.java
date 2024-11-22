@@ -15,6 +15,7 @@ public class P01FirstAndLastPositionOfSortedArray {
         return ans;
     }
 
+
     private static int findFirstPosition(int[] arr, int target) {
         int start=0;
         int end=arr.length-1;
@@ -45,6 +46,31 @@ public class P01FirstAndLastPositionOfSortedArray {
                 end=mid-1;
             } else  {
                 start=mid+1;
+            }
+        }
+        return ans;
+    }
+    // if u want to eliminate multiple method user one flag to check isFirst.
+
+    private static int findPosition(int[] arr, int target, boolean isFirst) {
+        int start = 0;
+        int end = arr.length - 1;
+        int ans = -1;
+
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+
+            if (arr[mid] == target) {
+                ans = mid; // Record the position
+                if (isFirst) {
+                    end = mid - 1; // Move left for the first occurrence
+                } else {
+                    start = mid + 1; // Move right for the last occurrence
+                }
+            } else if (target < arr[mid]) {
+                end = mid - 1; // Target is on the left
+            } else {
+                start = mid + 1; // Target is on the right
             }
         }
         return ans;

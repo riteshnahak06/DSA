@@ -1,4 +1,4 @@
-package src.main.java.com.dsa.arrays;
+package src.main.java.com.dsa.arrays.oct;
 public class P02SecondLargestElement {
     public static void main(String[] args) {
         int []arr={10,5,20,8,34,13,56,21,45};
