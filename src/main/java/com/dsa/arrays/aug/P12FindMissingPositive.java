@@ -11,7 +11,7 @@ ip [7,8,9,11,12] op =1 as 1 is the smallest positive integer
 public class P12FindMissingPositive {
     public static void main(String[] args) {
         int[] arr={1,1,2,3,5};
-        System.out.println(smallestPositiveIntegerBf3(arr));
+        System.out.println(smallestPositiveIntegerBf2(arr));
     }
     private static int smallestPositiveIntegerOptimized(int [] arr){
         int n = arr.length;
