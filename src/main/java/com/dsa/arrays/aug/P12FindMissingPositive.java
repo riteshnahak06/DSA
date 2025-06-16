@@ -1,6 +1,8 @@
 package src.main.java.com.dsa.arrays.aug;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /*
 for unsorted array return smallest positive integer that is not present in num using o(n) and a(1)
@@ -72,7 +74,7 @@ public class P12FindMissingPositive {
     }
 
     private static int smallestPositiveIntegerBf1(int[] arr) {
-        for (int i=1;i<=arr.length+1;i++){
+        for (int i=1;i<=arr.length;i++){
             boolean found=false;
             for (int j=0;j<arr.length;j++){
                 if (i==arr[j]){
@@ -85,6 +87,17 @@ public class P12FindMissingPositive {
             }
         }
         return -1;
+    }private static int  smallestPositiveIntegerBf4(int[] arr) {
+        Map<Integer,Integer> hm=new HashMap<>();
+        for (int i = 0; i < arr.length; i++) {
+            hm.put(arr[i],i);
+        }
+        for (int i = 1; i <= arr.length; i++) {
+            if (!hm.containsKey(i)){
+                return i;
+            }
+        }
+        return arr.length+1;
     }
 
 
