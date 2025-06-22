@@ -25,17 +25,14 @@ public class P08MoveAllZeroToEnd {
         return ans;
     }
     static int [] moveAllZero (int [] arr){
-        int start=0;
-        int end=arr.length-1;
-        while (start<end){
-            if (arr[start]==0){
-                swap(arr,start,end);
-//                start++;-> This u should not write becz after swap if the start is zero and we exclude and go ahead that will create issue
-                //anyway if it is not zero we are increasing in else so no need here
-                end--;
-            }else {
-                start++;
-            }
+        int i=0; // for iteration
+        int j=0; // to track first zero from left
+        while (i<arr.length){
+            if (arr[i]!=0){
+                //swap and move j to search new zero
+                swap(arr,i,j);
+                j++;
+            } i++;
         }
         return arr;
     }
