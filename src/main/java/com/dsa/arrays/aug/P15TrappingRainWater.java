@@ -20,7 +20,7 @@ public class P15TrappingRainWater {
                 l++;
             }else {
                 ans+=rMax-arr[r];
-                r++;
+                r--;
             }
         }
         return ans;
