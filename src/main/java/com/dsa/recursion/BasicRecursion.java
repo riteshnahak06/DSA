@@ -12,9 +12,17 @@ public class BasicRecursion {
         System.out.println(sumOfArrayValues(new int[]{2,3,1,3},0));
         System.out.println(sumOfDigit(1234));
         System.out.println(sumOfDigit2(1234));
+        System.out.println(isAscSortedArr(new int[]{1,3,2,5},0));
 
 
 
+    }
+
+    private static boolean isAscSortedArr(int[] arr, int i) {
+        if (i==arr.length-1) return true;
+        boolean l =arr[i]<arr[i+1];
+        boolean r= isAscSortedArr(arr,i+1);
+        return l && r;
     }
 
     private static int sumOfDigit(int num) {
