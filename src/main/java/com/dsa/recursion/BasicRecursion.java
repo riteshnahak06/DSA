@@ -9,8 +9,34 @@ public class BasicRecursion {
         System.out.println(sumTillNaturalNumber2(5));
         System.out.println(factorial(5));
         System.out.println(power(3,3));
+        System.out.println(sumOfArrayValues(new int[]{2,3,1,3},0));
+        System.out.println(sumOfDigit(1234));
+        System.out.println(sumOfDigit2(1234));
 
 
+
+    }
+
+    private static int sumOfDigit(int num) {
+        if (num/10==0) return num;
+        int l=num%10;
+        int r=sumOfDigit(num/10);
+        return l+r;
+    }
+    private static int sumOfDigit2(int num) {
+        if (num/10==0) return num;
+        return num%10+sumOfDigit2(num/10);
+    }
+
+    private static int sumOfArrayValues(int[] ints, int index) {
+        if (index==ints.length) return 0;
+        int l=ints[index];
+        int r=sumOfArrayValues(ints,index+1);
+        return l+r;
+    }
+    private static int sumOfArrayValues2(int[] ints, int index) {
+        if (index==ints.length) return 0;
+        return ints[index]+sumOfArrayValues2(ints,index+1);
     }
 
     private static int power(int a ,int b){
