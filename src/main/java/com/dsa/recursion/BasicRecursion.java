@@ -13,9 +13,17 @@ public class BasicRecursion {
         System.out.println(sumOfDigit(1234));
         System.out.println(sumOfDigit2(1234));
         System.out.println(isAscSortedArr(new int[]{1,3,2,5},0));
+        System.out.println(removeMfromString("amxmcm"));
 
 
 
+    }
+
+    private static String removeMfromString(String s) {
+        if (s.length()==0) return "";
+        String l= s.charAt(0)!='m'? String.valueOf(s.charAt(0)) : "";
+        String r=removeMfromString(s.substring(1));
+        return l+r;
     }
 
     private static boolean isAscSortedArr(int[] arr, int i) {
