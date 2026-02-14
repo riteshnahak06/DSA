@@ -9,6 +9,7 @@ public class CustomSingleLinkedList {
         customSingleLinkedList.add(12);
         customSingleLinkedList.add(11);
         customSingleLinkedList.add(21);
+        customSingleLinkedList.remove(11);
         printCustomList(customSingleLinkedList);
     }
 
@@ -23,6 +24,26 @@ public class CustomSingleLinkedList {
             currNode = currNode.next;
         }
         System.out.println("null");
+    }
+
+    private void remove(int data) {
+        if (head == null) return;
+        if (head.data == data) {
+            head = head.next;
+            size--;
+            return;
+        }
+        Node prev = head;
+        Node curr = head.next;
+        while (curr != null) {
+            if (curr.data == data) {
+                prev.next = curr.next;
+                size--;
+                return;
+            }
+            prev = curr;
+            curr = curr.next;
+        }
     }
 
 
@@ -47,6 +68,9 @@ public class CustomSingleLinkedList {
         newNode.next=null;
         size++;
     }
+
+
+
 
 
 
